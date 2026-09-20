@@ -1,0 +1,66 @@
+export const market = {
+  "market.title": "Marché P2P",
+  "market.subtitle": "{count} annonces ouvertes",
+  "market.currencies": "MRU = ouguiya mauritanienne · ₽ = rouble russe",
+  "market.side.label": "Sens de l'échange",
+  "market.side.buy": "Acheter des MRU",
+  "market.side.sell": "Vendre des MRU",
+  "market.side.buyHint": "Vous payez en ₽ et recevez des MRU",
+  "market.side.sellHint": "Vous payez en MRU et recevez des ₽",
+
+  "market.filter.min": "Montant min. ({currency})",
+  "market.filter.sort": "Trier par",
+  "market.filter.apply": "Filtrer",
+  "market.filter.reset": "Réinitialiser",
+  "market.sort.price": "Meilleur prix",
+  "market.sort.new": "Plus récentes",
+  "market.sort.size": "Plus gros montant",
+
+  "market.card.rate": "1 ₽ = {rate} MRU",
+  "market.card.rateLabel": "Prix",
+  "market.card.receive": "Vous recevez",
+  "market.card.pay": "Vous payez ≈",
+  "market.card.fixed": "Montant fixe : l'annonce est échangée en une seule fois.",
+  "market.card.trades30": "{n} échanges · 30 j",
+  "market.card.completion": "{p} de réussite",
+  "market.card.release": "≈ {m} min en moyenne",
+  "market.card.noStats": "Pas encore de statistiques",
+  "market.card.anonymous": "Anonyme",
+
+  "market.action.buy": "Acheter des MRU",
+  "market.action.sell": "Vendre des MRU",
+  "market.action.own": "Votre annonce",
+
+  "market.gate.guest": "Connectez-vous pour échanger",
+  "market.gate.unverified": "Vérifiez-vous pour échanger",
+  "market.gate.pending": "Vérification en cours",
+  "market.gate.rejected": "Vérification refusée",
+  "market.gate.no_subscription": "Abonnement requis",
+  "market.gate.suspended": "Compte suspendu",
+
+  "market.banner.guest": "Parcourez le marché librement. Connectez-vous et faites-vous vérifier pour échanger.",
+  "market.banner.unverified": "Envoyez votre passeport et votre numéro WhatsApp pour publier ou accepter des annonces.",
+  "market.banner.pending": "Votre dossier est en cours d'examen. Vous pourrez échanger dès qu'il sera validé.",
+  "market.banner.rejected": "Votre vérification a été refusée. Consultez le motif et renvoyez votre dossier.",
+  "market.banner.no_subscription":
+    "Vous êtes vérifié, mais votre abonnement n'est pas encore actif. Un administrateur doit l'activer.",
+  "market.banner.suspended": "Votre compte est suspendu. Contactez le support.",
+  "market.banner.cta.guest": "Se connecter",
+  "market.banner.cta.unverified": "Se faire vérifier",
+  "market.banner.cta.pending": "Voir l'état",
+  "market.banner.cta.rejected": "Voir le motif",
+
+  "market.confirm.title": "Démarrer cet échange ?",
+  "market.confirm.body":
+    "L'annonce est bloquée pendant 30 minutes et vous discutez avec {name}. Sans confirmation des deux côtés, elle retourne sur le marché.",
+  "market.confirm.cta": "Démarrer l'échange",
+  "market.locking": "Verrouillage…",
+
+  "market.err.notEligible": "Vous devez être vérifié et abonné pour échanger.",
+  "market.err.unavailable": "Cette annonce n'est plus disponible.",
+  "market.err.own": "Vous ne pouvez pas accepter votre propre annonce.",
+
+  "market.empty.title": "Aucune annonce pour l'instant",
+  "market.empty.hint": "Publiez la vôtre ou changez de filtre.",
+  "market.empty.cta": "Publier une annonce",
+} as const;

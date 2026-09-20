@@ -1,0 +1,65 @@
+import type { common as fr } from "../fr/common";
+
+export const common: Record<keyof typeof fr, string> = {
+  "app.name": "RIM-EX",
+  "app.pair": "MRU ⇄ ₽",
+  "app.description":
+    "P2P exchange of Mauritanian ouguiya (MRU) and Russian rubles (₽) between Mauritanian students in Russia.",
+
+  "nav.market": "Market",
+  "nav.post": "Post",
+  "nav.chat": "Chats",
+  "nav.profile": "Profile",
+  "nav.login": "Log in",
+  "nav.signup": "Sign up",
+  "nav.verify": "Get verified",
+  "nav.skip": "Skip to content",
+  "nav.primary": "Main navigation",
+
+  "lang.label": "Language",
+  "lang.fr": "Français",
+  "lang.ar": "العربية",
+  "lang.en": "English",
+  "theme.label": "Theme",
+  "theme.light": "Light",
+  "theme.dark": "Dark",
+  "theme.system": "System",
+
+  "status.open": "Open",
+  "status.locked": "In progress",
+  "status.completed": "Completed",
+  "status.cancelled": "Cancelled",
+  "status.verified": "Verified",
+  "status.pending": "Under review",
+  "status.unverified": "Not verified",
+  "status.rejected": "Rejected",
+  "status.active": "Active",
+  "status.inactive": "Inactive",
+  "status.suspended": "Suspended",
+
+  "badge.verified": "Verified",
+  "badge.new": "New",
+
+  "common.cancel": "Cancel",
+  "common.confirm": "Confirm",
+  "common.back": "Back",
+  "common.next": "Continue",
+  "common.copy": "Copy",
+  "common.copied": "Copied",
+  "common.close": "Close",
+  "common.loading": "Loading…",
+  "common.optional": "optional",
+  "common.viewAll": "View all",
+  "common.save": "Save",
+  "common.search": "Search",
+  "common.rating": "Rating",
+  "common.trades": "trades",
+  "common.error": "Something went wrong. Please try again.",
+  "common.signOut": "Sign out",
+
+  "trust.p2p": "Direct peer-to-peer exchange",
+  "trust.p2pHint":
+    "RIM-EX never holds your money: you pay the other person directly and each side confirms receipt.",
+  "trust.verifiedTraders": "Passport-verified traders",
+  "footer.note": "RIM-EX connects two people; the money moves directly between them, outside the app.",
+};

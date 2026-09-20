@@ -1,0 +1,11 @@
+# Netlify detects Next.js by itself (build output, server functions, image CDN); this file only
+# pins the Node version and keeps the secret scanner from flagging public values.
+[build]
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "22"
+  # These two are public by design (they are compiled into the browser bundle), so the
+  # secret scanner must not treat them as leaked secrets. The service-role key is NOT listed:
+  # it must never appear in the build output, and the scanner will catch it if it does.
+  SECRETS_SCAN_OMIT_KEYS = "NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_ANON_KEY"

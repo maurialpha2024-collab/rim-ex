@@ -1,0 +1,303 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   Design tokens
+   Light is the default. Dark applies when the user picked it (data-theme="dark")
+   or, with no explicit choice, when the OS prefers dark. The dark block appears
+   twice (attribute + media query) because CSS can't share one declaration list
+   between the two conditions.
+   Every ink/solid token below was checked against WCAG AA (>= 4.5:1).
+   ========================================================================== */
+:root {
+  color-scheme: light;
+
+  --canvas: #f7f9f8;
+  --surface: #ffffff;
+  --surface-2: #f0f4f2;
+  --border: #e4e9e7;
+  --border-strong: #c9d3cf;
+  --text: #0f1a17;
+  --text-muted: #5e6b67;
+
+  --primary: #0e7c66;
+  --primary-hover: #0a6353;
+  --primary-soft: #e6f4f0;
+  --primary-ink: #063d33;
+  --on-primary: #ffffff;
+  --brand-text: #0b6e5a;
+
+  --gold: #e0a800;
+  --gold-soft: #fbf3da;
+  --gold-ink: #6b4e00;
+
+  --positive: #12875a;
+  --positive-solid: #0f7a50;
+  --positive-soft: #e3f4ec;
+  --positive-ink: #0b5c3d;
+
+  --negative: #d64545;
+  --negative-solid: #c23b3b;
+  --negative-soft: #fbe9e9;
+  --negative-ink: #9e2a2a;
+
+  --warning: #c77700;
+  --warning-solid: #a85f00;
+  --warning-soft: #fcf0dc;
+  --warning-ink: #7a4500;
+
+  --info: #1e6fb8;
+  --info-solid: #1e6fb8;
+  --info-soft: #e4f0fa;
+  --info-ink: #134f87;
+
+  --ring: #0e7c66;
+  --shadow-card: 0 1px 2px rgb(15 26 23 / 0.04), 0 6px 20px rgb(15 26 23 / 0.06);
+  --shadow-pop: 0 10px 40px rgb(15 26 23 / 0.16);
+  --scrim: rgb(15 26 23 / 0.5);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --canvas: #0c1512;
+  --surface: #14201c;
+  --surface-2: #1b2b26;
+  --border: #23322d;
+  --border-strong: #35483f;
+  --text: #eaf0ed;
+  --text-muted: #9db0a9;
+
+  --primary: #0e7c66;
+  --primary-hover: #12977d;
+  --primary-soft: #123b32;
+  --primary-ink: #a6ead9;
+  --on-primary: #ffffff;
+  --brand-text: #45c7a8;
+
+  --gold: #e0a800;
+  --gold-soft: #3a2f0a;
+  --gold-ink: #f2cb55;
+
+  --positive: #12875a;
+  --positive-solid: #0f7a50;
+  --positive-soft: #0f3a2b;
+  --positive-ink: #5fd9a2;
+
+  --negative: #d64545;
+  --negative-solid: #c23b3b;
+  --negative-soft: #3f1b1b;
+  --negative-ink: #ff9b9b;
+
+  --warning: #c77700;
+  --warning-solid: #a85f00;
+  --warning-soft: #3d2a08;
+  --warning-ink: #f2b45a;
+
+  --info: #1e6fb8;
+  --info-solid: #1e6fb8;
+  --info-soft: #10304f;
+  --info-ink: #8cc4f2;
+
+  --ring: #45c7a8;
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.3), 0 6px 20px rgb(0 0 0 / 0.25);
+  --shadow-pop: 0 10px 40px rgb(0 0 0 / 0.5);
+  --scrim: rgb(0 0 0 / 0.65);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+
+    --canvas: #0c1512;
+    --surface: #14201c;
+    --surface-2: #1b2b26;
+    --border: #23322d;
+    --border-strong: #35483f;
+    --text: #eaf0ed;
+    --text-muted: #9db0a9;
+
+    --primary: #0e7c66;
+    --primary-hover: #12977d;
+    --primary-soft: #123b32;
+    --primary-ink: #a6ead9;
+    --on-primary: #ffffff;
+    --brand-text: #45c7a8;
+
+    --gold: #e0a800;
+    --gold-soft: #3a2f0a;
+    --gold-ink: #f2cb55;
+
+    --positive: #12875a;
+    --positive-solid: #0f7a50;
+    --positive-soft: #0f3a2b;
+    --positive-ink: #5fd9a2;
+
+    --negative: #d64545;
+    --negative-solid: #c23b3b;
+    --negative-soft: #3f1b1b;
+    --negative-ink: #ff9b9b;
+
+    --warning: #c77700;
+    --warning-solid: #a85f00;
+    --warning-soft: #3d2a08;
+    --warning-ink: #f2b45a;
+
+    --info: #1e6fb8;
+    --info-solid: #1e6fb8;
+    --info-soft: #10304f;
+    --info-ink: #8cc4f2;
+
+    --ring: #45c7a8;
+    --shadow-card: 0 1px 2px rgb(0 0 0 / 0.3), 0 6px 20px rgb(0 0 0 / 0.25);
+    --shadow-pop: 0 10px 40px rgb(0 0 0 / 0.5);
+    --scrim: rgb(0 0 0 / 0.65);
+  }
+}
+
+/* ==========================================================================
+   Tailwind v4 theme: tokens -> utilities (bg-surface, text-muted, border-line, ...)
+   ========================================================================== */
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--border);
+  --color-line-strong: var(--border-strong);
+  --color-fg: var(--text);
+  --color-muted: var(--text-muted);
+
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-soft: var(--primary-soft);
+  --color-primary-ink: var(--primary-ink);
+  --color-on-primary: var(--on-primary);
+  --color-brand: var(--brand-text);
+
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-gold-ink: var(--gold-ink);
+
+  --color-positive: var(--positive);
+  --color-positive-solid: var(--positive-solid);
+  --color-positive-soft: var(--positive-soft);
+  --color-positive-ink: var(--positive-ink);
+
+  --color-negative: var(--negative);
+  --color-negative-solid: var(--negative-solid);
+  --color-negative-soft: var(--negative-soft);
+  --color-negative-ink: var(--negative-ink);
+
+  --color-warning: var(--warning);
+  --color-warning-solid: var(--warning-solid);
+  --color-warning-soft: var(--warning-soft);
+  --color-warning-ink: var(--warning-ink);
+
+  --color-info: var(--info);
+  --color-info-solid: var(--info-solid);
+  --color-info-soft: var(--info-soft);
+  --color-info-ink: var(--info-ink);
+
+  --color-ring: var(--ring);
+  --color-scrim: var(--scrim);
+
+  --font-sans: var(--font-plex-arabic), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --radius-card: 1rem;
+  --radius-control: 0.5rem;
+
+  --shadow-card: var(--shadow-card);
+  --shadow-pop: var(--shadow-pop);
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+@layer base {
+  *,
+  ::before,
+  ::after {
+    border-color: var(--border);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* Arabic runs ~10% larger with a taller line for legibility. */
+  html[lang="ar"] {
+    font-size: 110%;
+  }
+  html[lang="ar"] body {
+    line-height: 1.7;
+  }
+
+  body {
+    background: var(--canvas);
+    color: var(--text);
+    font-family: var(--font-plex-arabic), ui-sans-serif, system-ui, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: var(--primary-soft);
+    color: var(--primary-ink);
+  }
+
+  /* Numbers, ids and timestamps always read left-to-right, even inside RTL text. */
+  bdi,
+  [dir="ltr"] {
+    unicode-bidi: isolate;
+  }
+}
+
+/* Money and other figures: monospace, tabular, weight 600, never mirrored. */
+@utility money {
+  font-family: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  direction: ltr;
+  unicode-bidi: isolate;
+  white-space: nowrap;
+}
+
+@utility mono {
+  font-family: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-variant-numeric: tabular-nums;
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@utility skeleton {
+  background: linear-gradient(90deg, var(--surface-2) 25%, var(--border) 50%, var(--surface-2) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+  border-radius: var(--radius-control);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

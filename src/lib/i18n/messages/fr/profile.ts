@@ -1,0 +1,41 @@
+export const profile = {
+  "profile.memberSince": "Membre depuis le {date}",
+  "profile.newMember": "Nouveau membre",
+  "profile.sub.active": "Abonnement actif",
+  "profile.sub.inactive": "Abonnement inactif",
+  "profile.suspended": "Compte suspendu",
+  "profile.verifyCta": "Se faire vérifier",
+
+  "profile.trust.title": "Confiance",
+  "profile.rating": "Note moyenne",
+  "profile.ratingCount": "{n} avis",
+  "profile.completed": "Échanges terminés",
+  "profile.completion30": "Réussite (30 j)",
+  "profile.release": "Temps moyen",
+  "profile.minutes": "{m} min",
+  "profile.noData": "Pas encore de données",
+
+  "profile.checklist.title": "Vérifications",
+  "profile.check.whatsapp": "Numéro WhatsApp",
+  "profile.check.passport": "Passeport",
+  "profile.check.email": "Adresse e-mail",
+  "profile.check.subscription": "Abonnement",
+  "profile.check.provided": "Renseigné",
+  "profile.check.missing": "Manquant",
+  "profile.check.confirmed": "Confirmée",
+  "profile.check.unconfirmed": "Non confirmée",
+
+  "profile.stats.title": "Activité",
+  "profile.volume": "Volume échangé",
+  "profile.monthTrades": "Échanges ce mois-ci",
+  "profile.positive": "Avis positifs",
+
+  "profile.reviews.title": "Avis reçus",
+  "profile.reviews.bought": "Achats de MRU",
+  "profile.reviews.sold": "Ventes de MRU",
+  "profile.reviews.empty": "Aucun avis pour l'instant.",
+  "profile.reviews.noComment": "Sans commentaire",
+
+  "profile.history.title": "Historique des échanges",
+  "profile.history.empty": "Aucun échange pour l'instant.",
+} as const;
